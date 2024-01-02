@@ -1,0 +1,15 @@
+[package]
+name = "rm-sudoku"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+atomic = "0.5.1"
+libc = "0.2.151"
+libremarkable = { version = "0.6.2", default-features = false, features = [ "appctx" ] }
+once_cell = "1.19.0"
+sudoku = "0.8.0"
+
+[profile.release]
+strip = true
+panic = "abort"
