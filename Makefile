@@ -6,7 +6,7 @@ DEVICE_HOST ?= root@$(DEVICE_IP)
 
 all: build
 
-.PHONY: build
+.PHONY: build bench dist
 build:
 	cargo build --release --target=armv7-unknown-linux-gnueabihf
 
@@ -22,11 +22,8 @@ deploy:
 	scp ./target/$(TARGET)/release/rm-sudoku $(DEVICE_HOST):/opt/bin/sudoku
 	ssh $(DEVICE_HOST) 'RUST_BACKTRACE=1 RUST_LOG=debug /opt/bin/sudoku'
 
-dist: build
-	mkdir -p ./dist/opt/bin
-	mkdir -p ./dist/opt/usr/share/applications
-	cp ./target/$(TARGET)/release/rm-sudoku ./dist/opt/bin/sudoku
-	cp ./sudoku.oxide ./dist/opt/usr/share/applications/
-	tar -czvf dist/sudoku.tar.gz dist/opt/*
+dist:
+	tar -czvf src.tar.gz src Makefile Cargo.toml res/rm-sudoku.png sudoku.draft
+	toltecmk
 
 run: build deploy

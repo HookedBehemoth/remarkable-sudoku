@@ -1,6 +1,0 @@
-{
-    "displayName": "Sudoku",
-    "description": "Sudoku with pen input",
-    "bin": "/opt/bin/sudoku",
-    "type": "foreground"
-}
