@@ -224,10 +224,10 @@ fn draw_grid(fb: &mut Framebuffer) {
 	}
 }
 
-fn cell_position(x: u32, y: u32) -> cgmath::Point2<f32> {
+fn center_in_cell(x: u32, y: u32, bounds: mxcfb_rect) -> cgmath::Point2<f32> {
 	cgmath::point2(
-		(GRID_OFFSET + CELL_SIZE / 3 + x * CELL_SIZE) as f32,
-		(GRID_OFFSET + CELL_SIZE * 3 / 4 + y * CELL_SIZE) as f32,
+		(GRID_OFFSET + (CELL_SIZE - bounds.width) / 2 + x * CELL_SIZE - WIDTH) as f32,
+		(GRID_OFFSET + CELL_SIZE - bounds.height / 2 + y * CELL_SIZE - WIDTH) as f32,
 	)
 }
 
@@ -298,8 +298,16 @@ fn draw_sudoku(app: &mut appctx::ApplicationContext<'_>) {
 		if val != &0 {
 			let x = idx % 9;
 			let y = idx / 9;
-			let pos = cell_position(x as u32, y as u32);
 			let text = ((b'0' + *val as u8) as char).to_string();
+			let bounds = fb.draw_text(
+				cgmath::point2(130.0, 130.0),
+				&text,
+				0.8f32 * CELL_SIZE as f32,
+				color::BLACK,
+				true,
+			);
+
+			let pos = center_in_cell(x as u32, y as u32, bounds);
 			fb.draw_text(pos, &text, 0.8f32 * CELL_SIZE as f32, color::BLACK, false);
 		}
 	}
