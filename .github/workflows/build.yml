@@ -1,0 +1,19 @@
+on:
+  push:
+  pull_request:
+jobs:
+  build:
+    name: Build package
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout the Git repository
+        uses: actions/checkout@v4
+      - name: Create source tarball
+        run: tar -czvf src.tar.gz src res Cargo.toml sudoku.draft
+      - name: Build package
+        uses: toltec-dev/build-action@v1
+      - name: Save packages
+        uses: actions/upload-artifact@v3
+        with:
+          name: packages
+          path: dist/**/*.ipk
