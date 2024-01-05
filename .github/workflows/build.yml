@@ -9,7 +9,7 @@ jobs:
       - name: Checkout the Git repository
         uses: actions/checkout@v4
       - name: Create source tarball
-        run: tar -czvf src.tar.gz src res Cargo.toml sudoku.draft
+        run: tar -czvf src.tar.gz src res Cargo.toml sudoku.draft sudoku.oxide
       - name: Build package
         uses: toltec-dev/build-action@v1
       - name: Save packages
