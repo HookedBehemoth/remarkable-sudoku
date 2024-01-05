@@ -1,8 +1,8 @@
 # Copyright (c) 2024 HookedBehemoth
 # SPDX-License-Identifier: GPL-3.0-only
 
-name=rm-sudoku
+name=sudoku
 desc=Sudoku for Remarkable
-imgFile=rm-sudoku
-call=/opt/bin/rm-sudoku
-term=killall -9 rm-sudoku
+imgFile=sudoku
+call=/opt/bin/sudoku
+term=killall -9 sudoku

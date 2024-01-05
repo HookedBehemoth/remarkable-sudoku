@@ -2,7 +2,7 @@
 # Copyright (c) 2024 HookedBehemoth
 # SPDX-License-Identifier: GPL-3.0-only
 
-pkgnames=(rm-sudoku)
+pkgnames=(sudoku)
 pkgdesc="Sudoku for Remarkable"
 url="https://github.com/HookedBehemoth/remarkable-sudoku"
 pkgver=0.1.0-1
@@ -23,9 +23,12 @@ build() {
 
 package() {
     install -D -m 755 -t "$pkgdir"/opt/bin \
-        "$srcdir"/target/armv7-unknown-linux-gnueabihf/release/rm-sudoku
-	install -D -m 644 -t "$pkgdir"/opt/etc/draft/ \
+        "$srcdir"/target/armv7-unknown-linux-gnueabihf/release/sudoku
+	install -D -m 644 -t "$pkgdir"/opt/etc/draft \
 		"$srcdir"/sudoku.draft
-	install -D -m 644 -t "$pkgdir"/opt/etc/draft/icons \
-		"$srcdir"/res/rm-sudoku.png
+	install -D -m 644 -T "$srcdir"/res/702.png "$pkgdir"/opt/etc/draft/icons/sudoku.png
+	install -D -m 644 -t "$pkgdir"/opt/usr/share/applications \
+		"$srcdir"/sudoku.oxide
+	install -D -m 644 -T "$srcdir"/res/702.png "$pkgdir"/opt/usr/share/icons/oxide/702x702/sudoku.png
+	install -D -m 644 -T "$srcdir"/res/48.png "$pkgdir"/opt/usr/share/icons/oxide/48x48/apps/sudoku.png
 }

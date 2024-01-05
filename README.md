@@ -9,7 +9,7 @@ Sudoku for [remarkable](https://remarkable.com/).
 
 ## Installation
 ```sh
-opkg install ./rm-sudoku_0.1.0-1_rmall.ipk
+opkg install ./sudoku_0.1.0-1_rmall.ipk
 ```
 
 ## Building
@@ -19,7 +19,7 @@ make dist
 
 ## License
 ```
-    rm-sudoku
+    sudoku
     Copyright (C) 2024  HookedBehemoth
 
     This program is free software: you can redistribute it and/or modify

@@ -18,12 +18,12 @@ test:
 	cargo test
 
 deploy:
-	ssh $(DEVICE_HOST) 'killall -q -9 rm-sudoku || true; systemctl stop xochitl || true'
-	scp ./target/$(TARGET)/release/rm-sudoku $(DEVICE_HOST):/opt/bin/sudoku
+	ssh $(DEVICE_HOST) 'killall -q -9 sudoku || true; systemctl stop xochitl || true'
+	scp ./target/$(TARGET)/release/sudoku $(DEVICE_HOST):/opt/bin/sudoku
 	ssh $(DEVICE_HOST) 'RUST_BACKTRACE=1 RUST_LOG=debug /opt/bin/sudoku'
 
 dist:
-	tar -czvf src.tar.gz src Makefile Cargo.toml res/rm-sudoku.png sudoku.draft
+	tar -czvf src.tar.gz src Makefile Cargo.toml res sudoku.draft sudoku.oxide
 	toltecmk
 
 run: build deploy

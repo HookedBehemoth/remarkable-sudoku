@@ -1,5 +1,5 @@
 [package]
-name = "rm-sudoku"
+name = "sudoku"
 version = "0.1.1"
 authors = ["Luis S. <luis@scheurenbrand.me>"]
 edition = "2021"

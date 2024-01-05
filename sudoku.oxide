@@ -1,0 +1,7 @@
+{
+    "displayName": "Sudoku",
+    "description": "Sudoku with pen input",
+    "bin": "/opt/bin/sudoku",
+    "icon": "oxide:sudoku-48",
+    "splash": "oxide:splash:sudoku-702",
+}
