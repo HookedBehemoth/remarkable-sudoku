@@ -5,7 +5,7 @@
 pkgnames=(sudoku)
 pkgdesc="Sudoku for Remarkable"
 url="https://github.com/HookedBehemoth/remarkable-sudoku"
-pkgver=0.1.1-1
+pkgver=0.1.2-1
 timestamp=2023-01-03T10:31Z
 section="games"
 maintainer="Luis S. <luis@scheurenbrand.me>"
